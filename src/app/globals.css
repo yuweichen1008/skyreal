@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+@layer components {
+  .hero-clip {
+    @apply relative w-full h-[600px] overflow-hidden;
+  }
+
+  .clip-overlay {
+    @apply absolute inset-0 bg-black/50 flex items-center justify-center;
+  }
+
+  .section-title {
+    @apply text-4xl font-bold mb-8 text-center;
+  }
+
+  .event-card {
+    @apply bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600;
+  }
+}
