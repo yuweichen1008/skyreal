@@ -5,85 +5,89 @@ import Link from 'next/link';
 import { subscribeEmail } from '@/lib/appwrite';
 
 export default function Navbar() {
+  const [isSubscribing, setIsSubscribing] = useState(false);
   const [email, setEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [subscriptionStatus, setSubscriptionStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setIsSubscribing(true);
     
     try {
       await subscribeEmail(email);
-      setSubscriptionStatus('success');
+      setShowPopup(false);
       setEmail('');
     } catch (error) {
-      setSubscriptionStatus('error');
+      console.error('Subscription failed:', error);
     } finally {
-      setIsSubmitting(false);
+      setIsSubscribing(false);
     }
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link href="/" className="text-white text-2xl font-bold">
+    <div className="fixed top-0 left-0 right-0 bg-black">
+      <div className="flex items-center justify-between h-20 px-8">
+        {/* Left side - Links */}
+        <div className="flex items-center gap-8">
+          <Link href="/" className="text-white">
             52Hertz
           </Link>
-
-          {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="/episodes" className="text-white hover:text-gray-300 transition-colors">
+          <div className="flex items-center gap-8">
+            <Link href="/episodes" className="text-white">
               Episodes
             </Link>
-            <a 
-              href="https://www.youtube.com/@52Hertz" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white hover:text-gray-300 transition-colors"
-            >
-              YouTube
-            </a>
+            <Link href="/events" className="text-white">
+              Events
+            </Link>
+            <Link href="/meetups" className="text-white">
+              Meetups
+            </Link>
+            <Link href="/summit" className="text-white">
+              Summit
+            </Link>
+            <Link href="/about" className="text-white">
+              About
+            </Link>
           </div>
-
-          {/* Subscribe Form */}
-          <form onSubmit={handleSubscribe} className="hidden md:flex items-center space-x-4">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              className="px-4 py-2 rounded-full text-black text-sm"
-              required
-            />
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="bg-white text-black px-6 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors disabled:opacity-50"
-            >
-              {isSubmitting ? 'Subscribing...' : 'Subscribe'}
-            </button>
-          </form>
-
-          {/* Mobile Menu Button */}
-          <button className="md:hidden text-white">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
         </div>
+
+        {/* Right side - Subscribe button */}
+        <button
+          onClick={() => setShowPopup(true)}
+          className="bg-white text-black px-6 py-2 rounded-full"
+        >
+          Subscribe
+        </button>
       </div>
 
-      {/* Subscription Status Message */}
-      {subscriptionStatus !== 'idle' && (
-        <div className={`text-center py-2 ${subscriptionStatus === 'success' ? 'bg-green-500' : 'bg-red-500'} text-white`}>
-          {subscriptionStatus === 'success' 
-            ? 'Thank you for subscribing!' 
-            : 'Failed to subscribe. Please try again.'}
+      {/* Basic Popup */}
+      {showPopup && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center">
+          <div className="bg-white p-8 max-w-md w-full mx-4">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-2xl font-bold">Subscribe to 52Hertz</h3>
+              <button onClick={() => setShowPopup(false)}>×</button>
+            </div>
+            <form onSubmit={handleSubscribe}>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                className="w-full px-4 py-2 border mb-4"
+                required
+              />
+              <button
+                type="submit"
+                disabled={isSubscribing}
+                className="w-full bg-black text-white px-6 py-2"
+              >
+                {isSubscribing ? 'Subscribing...' : 'Subscribe'}
+              </button>
+            </form>
+          </div>
         </div>
       )}
-    </nav>
+    </div>
   );
 } 

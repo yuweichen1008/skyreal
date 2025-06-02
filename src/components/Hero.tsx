@@ -20,6 +20,12 @@ const clips = [
     title: "Business Insights",
     videoUrl: "/clips/clip3.mp4",
     description: "Strategic thinking for modern business"
+  },
+  {
+    id: 4,
+    title: "Innovation Talks",
+    videoUrl: "/clips/clip4.mp4",
+    description: "Deep dive into technological innovations"
   }
 ];
 
@@ -35,20 +41,30 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="relative w-full h-screen">
-      <video
-        key={clips[currentClip].id}
-        className="absolute inset-0 w-full h-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-      >
-        <source src={clips[currentClip].videoUrl} type="video/mp4" />
-      </video>
-      <div className="absolute inset-0 bg-black/50">
+    <div className="fixed top-0 left-0 w-full h-screen bg-black">
+      {/* Video Container */}
+      <div className="absolute top-0 left-0 w-full h-full">
+        <video
+          key={clips[currentClip].id}
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto"
+          style={{
+            objectFit: 'cover',
+            width: '100vw',
+            height: '100vh'
+          }}
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src={clips[currentClip].videoUrl} type="video/mp4" />
+        </video>
+      </div>
+
+      {/* Overlay */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black/50">
         <div className="h-full flex items-center justify-center">
-          <div className="text-center text-white p-4">
+          <div className="text-center text-white p-4 max-w-3xl mx-auto">
             <h1 className="text-4xl font-bold mb-4">
               {clips[currentClip].title}
             </h1>
