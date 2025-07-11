@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "52Hertz - Technology & Innovation Podcast",
-  description: "Exploring the depths of technology and innovation through engaging conversations and insights.",
+  title: "SkyReal - The Future of Reality",
+  description: "Experience the next generation of immersive technology with SkyReal. Join thousands of users exploring new dimensions.",
 };
 
 export default function RootLayout({
@@ -17,8 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Navbar />
+      <body className="antialiased">
         {children}
       </body>
     </html>

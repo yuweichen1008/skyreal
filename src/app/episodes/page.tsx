@@ -1,58 +1,67 @@
 'use client';
 
-const episodes = [
-  {
-    id: 1,
-    title: "Episode 1: Introduction to 52Hertz",
-    description: "Welcome to our podcast where we explore the depths of technology and innovation.",
-    youtubeId: "YOUR_YOUTUBE_ID_1",
-    date: "March 1, 2024"
-  },
-  {
-    id: 2,
-    title: "Episode 2: The Future of AI",
-    description: "Diving deep into artificial intelligence and its impact on our daily lives.",
-    youtubeId: "YOUR_YOUTUBE_ID_2",
-    date: "March 8, 2024"
-  },
-  // Add more episodes as needed
-];
+import Link from 'next/link';
+import { episodes } from '@/lib/episodes';
 
-export default function EpisodesPage() {
+export default function Episodes() {
   return (
-    <div className="pt-20 min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold mb-12 text-center">Latest Episodes</h1>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {episodes.map((episode) => (
-            <div key={episode.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="relative pb-[56.25%]">
-                <iframe
-                  className="absolute top-0 left-0 w-full h-full"
-                  src={`https://www.youtube.com/embed/${episode.youtubeId}`}
-                  title={episode.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-              <div className="p-6">
-                <h2 className="text-xl font-bold mb-2">{episode.title}</h2>
-                <p className="text-gray-600 mb-4">{episode.date}</p>
-                <p className="text-gray-700 mb-4">{episode.description}</p>
-                <a
-                  href={`https://www.youtube.com/watch?v=${episode.youtubeId}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition-colors"
-                >
-                  Watch on YouTube
-                </a>
-              </div>
-            </div>
-          ))}
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      {/* Navigation */}
+      <nav className="px-6 py-4">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <a href="/" className="text-2xl font-bold text-white">SkyReal</a>
+          <div className="hidden md:flex space-x-8">
+            <a href="/#features" className="text-gray-300 hover:text-white transition-colors">Features</a>
+            <a href="/#about" className="text-gray-300 hover:text-white transition-colors">About</a>
+            <a href="/#contact" className="text-gray-300 hover:text-white transition-colors">Contact</a>
+          </div>
         </div>
-      </div>
+      </nav>
+
+      {/* Episodes Content */}
+      <main className="px-6 py-20">
+        <div className="max-w-6xl mx-auto">
+          <h1 className="text-5xl font-bold text-white text-center mb-16">
+            Our <span className="gradient-text">Episodes</span>
+          </h1>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {episodes.map((episode) => (
+              <Link 
+                key={episode.id} 
+                href={`/episodes/${episode.id}`}
+                className="glass-card rounded-xl p-6 hover:scale-105 transition-transform duration-200"
+              >
+                <div className="w-full h-48 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg mb-4 flex items-center justify-center">
+                  <div className="text-white text-center">
+                    <div className="text-4xl mb-2">🎙️</div>
+                    <div className="text-sm font-medium">{episode.duration}</div>
+                  </div>
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-2 line-clamp-2">{episode.title}</h3>
+                <p className="text-gray-300 mb-4 line-clamp-3">{episode.description}</p>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-400">{episode.date}</span>
+                  <div className="flex gap-2">
+                    {episode.tags.slice(0, 2).map((tag) => (
+                      <span key={tag} className="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="px-6 py-8 border-t border-white/10">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-gray-400">&copy; 2024 SkyReal. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 } 
