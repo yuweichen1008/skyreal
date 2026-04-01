@@ -1,44 +1,86 @@
-import { Client, Databases, ID } from 'appwrite';
+// All Appwrite SDK calls use dynamic imports so the package is never
+// loaded during SSR (it accesses localStorage at import time).
 
-if (!process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT) {
-    throw new Error('Missing AppWrite endpoint');
+const ENDPOINT = process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT;
+const PROJECT_ID = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID;
+const DATABASE_ID = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
+const COLLECTION_ID = process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID;
+const QA_COLLECTION_ID = process.env.NEXT_PUBLIC_APPWRITE_QA_COLLECTION_ID;
+
+function assertEnv() {
+  if (!ENDPOINT) throw new Error('[Appwrite] NEXT_PUBLIC_APPWRITE_ENDPOINT is not set in .env.local');
+  if (!PROJECT_ID) throw new Error('[Appwrite] NEXT_PUBLIC_APPWRITE_PROJECT_ID is not set in .env.local');
+  if (!DATABASE_ID) throw new Error('[Appwrite] NEXT_PUBLIC_APPWRITE_DATABASE_ID is not set in .env.local');
+  if (!COLLECTION_ID) throw new Error('[Appwrite] NEXT_PUBLIC_APPWRITE_COLLECTION_ID is not set in .env.local');
 }
 
-if (!process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID) {
-    throw new Error('Missing AppWrite project ID');
+function wrapAppwriteError(fn: string, err: unknown): never {
+  const msg = err instanceof Error ? err.message : String(err);
+  // Appwrite returns structured errors with code/type
+  const detail = (err as { code?: number; type?: string })?.code
+    ? ` (code=${(err as { code: number }).code} type=${(err as { type: string }).type})`
+    : '';
+  throw new Error(`[Appwrite:${fn}] ${msg}${detail}`);
 }
 
-if (!process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID) {
-    throw new Error('Missing AppWrite database ID');
+async function getDB() {
+  assertEnv();
+  const { Client, Databases } = await import('appwrite');
+  const client = new Client().setEndpoint(ENDPOINT!).setProject(PROJECT_ID!);
+  return new Databases(client);
 }
-
-if (!process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID) {
-    throw new Error('Missing AppWrite collection ID');
-}
-
-const client = new Client()
-    .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT)
-    .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID);
-
-export const databases = new Databases(client);
-
-export const DATABASE_ID = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
-export const COLLECTION_ID = process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID;
 
 export const subscribeEmail = async (email: string) => {
-    try {
-        const response = await databases.createDocument(
-            DATABASE_ID,
-            COLLECTION_ID,
-            ID.unique(),
-            {
-                email,
-                subscribedAt: new Date().toISOString(),
-            }
-        );
-        return response;
-    } catch (error) {
-        console.error('Error subscribing email:', error);
-        throw error;
-    }
-}; 
+  try {
+    const { ID } = await import('appwrite');
+    const db = await getDB();
+    return await db.createDocument(DATABASE_ID!, COLLECTION_ID!, ID.unique(), {
+      email,
+      subscribedAt: new Date().toISOString(),
+    });
+  } catch (err) {
+    wrapAppwriteError('subscribeEmail', err);
+  }
+};
+
+export const submitQuestion = async (name: string, question: string) => {
+  if (!QA_COLLECTION_ID) {
+    throw new Error('[Appwrite:submitQuestion] NEXT_PUBLIC_APPWRITE_QA_COLLECTION_ID is not set in .env.local — create the qa_submissions collection first');
+  }
+  try {
+    const { ID } = await import('appwrite');
+    const db = await getDB();
+    return await db.createDocument(DATABASE_ID!, QA_COLLECTION_ID, ID.unique(), {
+      name,
+      question,
+      answer: null,
+      isAnswered: false,
+      submittedAt: new Date().toISOString(),
+    });
+  } catch (err) {
+    wrapAppwriteError('submitQuestion', err);
+  }
+};
+
+export interface QAItem {
+  $id: string;
+  name: string;
+  question: string;
+  answer: string;
+  submittedAt: string;
+}
+
+export const getAnsweredQuestions = async (): Promise<QAItem[]> => {
+  if (!QA_COLLECTION_ID) return [];
+  try {
+    const { Query } = await import('appwrite');
+    const db = await getDB();
+    const res = await db.listDocuments(DATABASE_ID!, QA_COLLECTION_ID, [
+      Query.equal('isAnswered', true),
+      Query.orderDesc('submittedAt'),
+    ]);
+    return res.documents as unknown as QAItem[];
+  } catch (err) {
+    wrapAppwriteError('getAnsweredQuestions', err);
+  }
+};

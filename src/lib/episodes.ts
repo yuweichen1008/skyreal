@@ -7,6 +7,8 @@ export interface Episode {
   thumbnail: string;
   spotifyUrl: string;
   tags: string[];
+  outline?: string[];
+  transcript?: string;
 }
 
 export const episodes: Episode[] = [
@@ -18,7 +20,9 @@ export const episodes: Episode[] = [
     date: "Today",
     thumbnail: "/episodes/ep3-thumbnail.jpg",
     spotifyUrl: "https://open.spotify.com/show/0JcB27aIGgVEvdvfrBPaLw",
-    tags: ["愛情", "心理測驗", "動物系", "戀愛"]
+    tags: ["愛情", "心理測驗", "動物系", "戀愛"],
+    outline: undefined,
+    transcript: undefined,
   },
   {
     id: "s1-ep2",
@@ -28,7 +32,9 @@ export const episodes: Episode[] = [
     date: "Today",
     thumbnail: "/episodes/ep2-thumbnail.jpg",
     spotifyUrl: "https://open.spotify.com/show/0JcB27aIGgVEvdvfrBPaLw",
-    tags: ["快問快答", "生活", "自我認識", "輕鬆"]
+    tags: ["快問快答", "生活", "自我認識", "輕鬆"],
+    outline: undefined,
+    transcript: undefined,
   },
   {
     id: "s1-ep1",
@@ -38,10 +44,12 @@ export const episodes: Episode[] = [
     date: "Thursday",
     thumbnail: "/episodes/ep1-thumbnail.jpg",
     spotifyUrl: "https://open.spotify.com/show/0JcB27aIGgVEvdvfrBPaLw",
-    tags: ["矽谷", "愛情", "科技", "灣區"]
+    tags: ["矽谷", "愛情", "科技", "灣區"],
+    outline: undefined,
+    transcript: undefined,
   }
 ];
 
 export const getEpisodeById = (id: string): Episode | undefined => {
   return episodes.find(episode => episode.id === id);
-}; 
+};
