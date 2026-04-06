@@ -6,6 +6,7 @@ const PROJECT_ID = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID;
 const DATABASE_ID = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
 const COLLECTION_ID = process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID;
 const QA_COLLECTION_ID = process.env.NEXT_PUBLIC_APPWRITE_QA_COLLECTION_ID;
+const INQUIRIES_COLLECTION_ID = process.env.NEXT_PUBLIC_APPWRITE_INQUIRIES_COLLECTION_ID;
 
 function assertEnv() {
   if (!ENDPOINT) throw new Error('[Appwrite] NEXT_PUBLIC_APPWRITE_ENDPOINT is not set in .env.local');
@@ -69,6 +70,25 @@ export interface QAItem {
   answer: string;
   submittedAt: string;
 }
+
+export const submitInquiry = async (name: string, company: string, email: string, message: string) => {
+  if (!INQUIRIES_COLLECTION_ID) {
+    throw new Error('[Appwrite:submitInquiry] NEXT_PUBLIC_APPWRITE_INQUIRIES_COLLECTION_ID is not set in .env.local');
+  }
+  try {
+    const { ID } = await import('appwrite');
+    const db = await getDB();
+    return await db.createDocument(DATABASE_ID!, INQUIRIES_COLLECTION_ID, ID.unique(), {
+      name,
+      company,
+      email,
+      message,
+      submittedAt: new Date().toISOString(),
+    });
+  } catch (err) {
+    wrapAppwriteError('submitInquiry', err);
+  }
+};
 
 export const getAnsweredQuestions = async (): Promise<QAItem[]> => {
   if (!QA_COLLECTION_ID) return [];
