@@ -7,6 +7,8 @@ const DATABASE_ID = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
 const COLLECTION_ID = process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID;
 const QA_COLLECTION_ID = process.env.NEXT_PUBLIC_APPWRITE_QA_COLLECTION_ID;
 const INQUIRIES_COLLECTION_ID = process.env.NEXT_PUBLIC_APPWRITE_INQUIRIES_COLLECTION_ID;
+const COURSES_COLLECTION_ID = process.env.NEXT_PUBLIC_APPWRITE_COURSES_COLLECTION_ID;
+const SPONSORSHIP_COLLECTION_ID = process.env.NEXT_PUBLIC_APPWRITE_SPONSORSHIP_COLLECTION_ID;
 
 function assertEnv() {
   if (!ENDPOINT) throw new Error('[Appwrite] NEXT_PUBLIC_APPWRITE_ENDPOINT is not set in .env.local');
@@ -87,6 +89,48 @@ export const submitInquiry = async (name: string, company: string, email: string
     });
   } catch (err) {
     wrapAppwriteError('submitInquiry', err);
+  }
+};
+
+export const enrollCourse = async (name: string, email: string, courseTitle: string) => {
+  if (!COURSES_COLLECTION_ID) {
+    throw new Error('[Appwrite:enrollCourse] NEXT_PUBLIC_APPWRITE_COURSES_COLLECTION_ID is not set in .env.local');
+  }
+  try {
+    const { ID } = await import('appwrite');
+    const db = await getDB();
+    return await db.createDocument(DATABASE_ID!, COURSES_COLLECTION_ID, ID.unique(), {
+      name,
+      email,
+      courseTitle,
+      submittedAt: new Date().toISOString(),
+    });
+  } catch (err) {
+    wrapAppwriteError('enrollCourse', err);
+  }
+};
+
+export const submitSponsorshipInquiry = async (
+  brandName: string,
+  contactEmail: string,
+  website: string,
+  message: string,
+) => {
+  if (!SPONSORSHIP_COLLECTION_ID) {
+    throw new Error('[Appwrite:submitSponsorshipInquiry] NEXT_PUBLIC_APPWRITE_SPONSORSHIP_COLLECTION_ID is not set in .env.local');
+  }
+  try {
+    const { ID } = await import('appwrite');
+    const db = await getDB();
+    return await db.createDocument(DATABASE_ID!, SPONSORSHIP_COLLECTION_ID, ID.unique(), {
+      brandName,
+      contactEmail,
+      website,
+      message,
+      submittedAt: new Date().toISOString(),
+    });
+  } catch (err) {
+    wrapAppwriteError('submitSponsorshipInquiry', err);
   }
 };
 
