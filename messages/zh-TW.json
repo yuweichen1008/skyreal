@@ -1,0 +1,201 @@
+{
+  "nav": {
+    "services": "服務",
+    "courses": "課程",
+    "sponsorship": "品牌合作",
+    "about": "關於我們",
+    "cta": "與我們合作"
+  },
+  "home": {
+    "hero": {
+      "badge": "全方位創意媒體公司",
+      "headline1": "真正有效的",
+      "headline2": "內容製作。",
+      "body": "為想被記住的品牌打造全方位媒體服務——影片、社群、文案與品牌識別，一站搞定。",
+      "cta1": "探索我們的服務",
+      "cta2": "立即聯繫 →"
+    },
+    "services": {
+      "title": "我們的服務",
+      "subtitle": "端到端的創意製作，讓你專注在更重要的事。",
+      "video": { "title": "影片製作", "desc": "品牌形象片、產品展示與客戶見證——讓你的觀眾看到最後一秒。" },
+      "social": { "title": "社群媒體", "desc": "內容日曆、短影音製作與社群經營，讓你的帳號持續活躍。" },
+      "copy": { "title": "文案與品牌聲音", "desc": "網站文案、電子郵件行銷與訊息策略，聽起來就像你——只是更好。" },
+      "brand": { "title": "品牌識別設計", "desc": "標誌、視覺規範與識別系統，讓你的品牌一眼就讓人認出。" }
+    },
+    "why": {
+      "title": "為什麼選擇 Skyreal？",
+      "subtitle": "我們打造了一間自己也希望存在的公司。",
+      "small": { "title": "懂得服務小品牌。", "desc": "沒有臃腫的服務合約，沒有制式的提案。只有針對你真實需求所打造的創意工作。" },
+      "honest": { "title": "坦誠直率。", "desc": "我們認真對待你的品牌，但不會把自己看得太嚴肅。期待直接的回饋與零廢話的溝通。" },
+      "partners": { "title": "合作夥伴，不是供應商。", "desc": "我們全心投入——因為你的成長，就是我們衡量自己的標準。" }
+    },
+    "howWeWork": {
+      "title": "我們怎麼工作",
+      "subtitle": "設計簡單，因為你的時間很寶貴。",
+      "discover": { "title": "探索", "desc": "深入了解你的目標、受眾，以及讓你與眾不同的地方。" },
+      "create": { "title": "創作", "desc": "策略與技藝的結合。我們打造讓人感覺對、又有效果的作品。" },
+      "launch": { "title": "上線", "desc": "發布、衡量、優化。我們和你一起持續在戰場上。" }
+    },
+    "more": {
+      "title": "Skyreal 的更多服務",
+      "subtitle": "學習資源與品牌合作機會。",
+      "courses": {
+        "title": "線上課程",
+        "desc": "學習內容策略、影片製作與品牌故事——由 Skyreal 團隊親自教授。自主學習、實用導向，專為忙碌的創業者設計。",
+        "cta": "瀏覽課程 →"
+      },
+      "sponsorship": {
+        "title": "與我們合作",
+        "desc": "讓你的品牌自然融入 Skyreal 的內容——影片提及、社群整合與共同品牌系列，真實觸及對的受眾。",
+        "cta": "了解贊助方案 →"
+      }
+    },
+    "founder": {
+      "label": "創辦人",
+      "name": "陳宥維",
+      "bio": "媒體創作者、說故事的人，深信每個品牌都有值得好好述說的故事。宥維創立 Skyreal，是為了把溫暖、有深度的創意工作，帶給那些值得更好作品的公司。",
+      "link": "前往個人網站 →"
+    },
+    "contact": {
+      "title": "一起合作吧",
+      "subtitle": "告訴我們你正在打造什麼，我們會告訴你如何幫助你。",
+      "name": "姓名",
+      "company": "公司名稱",
+      "email": "電子郵件",
+      "message": "你在做什麼專案？",
+      "messagePlaceholder": "告訴我們你的專案內容、目標與時程...",
+      "namePlaceholder": "王小明",
+      "companyPlaceholder": "某某公司",
+      "emailPlaceholder": "you@example.com",
+      "submit": "送出訊息",
+      "submitting": "傳送中...",
+      "successTitle": "已收到你的訊息！",
+      "successBody": "我們將在 1–2 個工作天內與你聯繫。",
+      "error": "發生錯誤。請直接寄信至 hello@skyreal.org"
+    }
+  },
+  "courses": {
+    "badge": "線上課程",
+    "headline1": "跟著",
+    "headline2": "Skyreal 團隊學習。",
+    "subtitle": "內容策略、影片製作、文案寫作與品牌設計的實用課程，自主學習，專為忙碌的創業者與成長中的團隊設計。",
+    "availableTitle": "現在開放",
+    "comingTitle": "即將推出",
+    "comingSubtitle": "這些課程正在製作中，立即報名加入候補名單。",
+    "ctaTitle": "有你想學的主題嗎？",
+    "ctaBody": "我們持續開發新課程，告訴我們你希望學什麼。",
+    "ctaLink": "推薦課程主題 →",
+    "duration": "時長",
+    "lessons": "堂課",
+    "enroll": "立即報名 →",
+    "comingSoon": "即將推出",
+    "modal": {
+      "label": "報名課程",
+      "yourName": "你的姓名",
+      "namePlaceholder": "王小明",
+      "emailLabel": "電子郵件",
+      "emailPlaceholder": "you@example.com",
+      "submit": "申請報名",
+      "submitting": "報名中...",
+      "note": "我們將在 1 個工作天內以電子郵件提供課程存取資訊。",
+      "successTitle": "你已加入名單！",
+      "successBody1": "我們將寄信至",
+      "successBody2": "，通知你",
+      "successBody3": "何時開放。",
+      "close": "關閉",
+      "error": "發生錯誤，請寄信至 hello@skyreal.org"
+    },
+    "catalogue": {
+      "strategy": {
+        "title": "內容策略入門",
+        "tagline": "打造讓品牌自動成長的內容引擎。",
+        "desc": "學習如何研究受眾、建立可持續的內容日曆、跨平台再利用素材，以及衡量真正重要的指標。適合厭倦靠猜測做內容的創辦人與行銷主管。",
+        "topics": ["受眾研究", "內容日曆", "頻道選擇", "內容再利用", "數據分析基礎"]
+      },
+      "video": {
+        "title": "影片製作基礎",
+        "tagline": "用你已有的設備，拍出讓人停下來看的影片。",
+        "desc": "從構圖、預算內的打光，到剪輯出乾淨的最終成品——這門課帶你走過完整的影片製作流程。不需要昂貴設備，一支手機加上好的創意就夠了。",
+        "topics": ["構圖", "打光", "收音", "用 CapCut / Premiere 剪輯", "縮圖設計"]
+      },
+      "copy": {
+        "title": "品牌聲音與文案寫作",
+        "tagline": "寫出讓客戶真的想讀的文字。",
+        "desc": "找到你的品牌聲音，建立訊息框架，撰寫能轉換的文案——適用於網站、社群、電子郵件與廣告。你將完成一份完整的品牌聲音與語氣指南。",
+        "topics": ["聲音與語氣", "訊息層次", "標題寫作", "電子郵件文案", "社群貼文"]
+      },
+      "social": {
+        "title": "社群媒體全攻略",
+        "tagline": "讓你的社群頻道成為穩定的成長引擎。",
+        "desc": "短影音策略、鉤子公式、發文頻率、社群互動，以及如何分析什麼有效。涵蓋 Instagram、TikTok、LinkedIn 與 YouTube Shorts。",
+        "topics": ["短影音鉤子", "演算法基礎", "發文節奏", "社群建立", "成效分析"]
+      },
+      "brandDesign": {
+        "title": "品牌識別設計",
+        "tagline": "設計一個看起來高端的品牌——即使預算有限。",
+        "desc": "標誌設計原則、色彩心理學、字型搭配，以及如何建立可擴展的視覺識別系統。使用 Figma（免費版），不需設計背景。",
+        "topics": ["標誌設計", "色彩理論", "字型學", "視覺規範", "Figma 基礎"]
+      }
+    }
+  },
+  "sponsorship": {
+    "badge": "品牌合作",
+    "headline1": "讓你的品牌出現在",
+    "headline2": "對的受眾面前。",
+    "subtitle": "我們製作的內容，是人們真的想看、願意分享的。與 Skyreal 合作，讓你的品牌成為這個故事的一部分——自然、真實、令人難忘。",
+    "formatsTitle": "合作形式",
+    "formatsSubtitle": "我們在受眾已在的地方與你的品牌相遇。",
+    "whyTitle": "為什麼贊助 Skyreal？",
+    "idealTitle": "最適合",
+    "formTitle": "開始對話",
+    "formSubtitle": "告訴我們你的品牌與目標，我們將回覆具體的合作方案。",
+    "brandName": "品牌／公司名稱",
+    "brandPlaceholder": "某某公司",
+    "contactEmail": "聯絡人電子郵件",
+    "emailPlaceholder": "you@brand.com",
+    "website": "網站",
+    "websiteOptional": "（選填）",
+    "websitePlaceholder": "https://yourbrand.com",
+    "goal": "你希望達成什麼目標？",
+    "goalPlaceholder": "請告訴我們你的受眾、目標，以及你心中理想的合作形式...",
+    "submit": "送出合作申請",
+    "submitting": "傳送中...",
+    "successTitle": "很高興認識你！",
+    "successBody": "我們將在 2 個工作天內審核並與你聯繫。",
+    "error": "發生錯誤。請直接寄信至 hello@skyreal.org",
+    "formats": {
+      "video": { "title": "影片提及", "desc": "你的品牌自然融入我們的影片內容——產品示範、教學或品牌段落。真實呈現，絕不突兀。" },
+      "social": { "title": "社群整合", "desc": "在我們的社群頻道上發布專屬或共同品牌貼文，設計成原生感，而非廣告感。" },
+      "series": { "title": "內容系列", "desc": "贊助整個內容系列——多集影片或社群活動，讓你的品牌主導敘事。" },
+      "email": { "title": "電子報曝光", "desc": "透過我們電子報中的專屬提及或贊助版位，直接觸及訂閱者。" }
+    },
+    "whys": {
+      "targeted": { "title": "精準觸及", "desc": "我們的受眾是創業者、品牌主與有品味的專業人士——不是隨意滑過的路人。" },
+      "authentic": { "title": "真實契合", "desc": "我們只與自己真的會使用並推薦的品牌合作。沒有隨機的置入。" },
+      "creative": { "title": "創意共創", "desc": "你可以參與品牌呈現的方式。沒有制式腳本。" }
+    },
+    "idealFor": ["新創與成長期企業", "B2B 軟體與工具", "教育科技平台", "創意工具與服務", "永續品牌", "專業服務業"]
+  },
+  "footer": {
+    "email": "hello@skyreal.org",
+    "rights": "版權所有。"
+  },
+  "palette": {
+    "placeholder": "輸入指令或搜尋...",
+    "noResults": "找不到結果：",
+    "hint": "按",
+    "hintKey": "開啟",
+    "commands": {
+      "home": "首頁",
+      "services": "我們的服務",
+      "courses": "瀏覽課程",
+      "sponsorship": "品牌合作",
+      "about": "認識創辦人",
+      "contact": "立即聯繫",
+      "switchEn": "切換至 English",
+      "switchZhTW": "切換至繁體中文",
+      "switchJa": "切換至日本語"
+    }
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "nav": {
+    "services": "Services",
+    "courses": "Courses",
+    "sponsorship": "Sponsorship",
+    "about": "About",
+    "cta": "Work With Us"
+  },
+  "home": {
+    "hero": {
+      "badge": "Creative Media Agency",
+      "headline1": "Content that",
+      "headline2": "actually works.",
+      "body": "Full-stack media for brands that want to be remembered. Video, social, copy, and brand identity — all under one roof.",
+      "cta1": "See Our Services",
+      "cta2": "Let's Talk →"
+    },
+    "services": {
+      "title": "What we do",
+      "subtitle": "End-to-end creative production, so you can focus on building.",
+      "video": { "title": "Video Production", "desc": "Brand films, product demos, and testimonials your customers actually watch to the end." },
+      "social": { "title": "Social Media", "desc": "Content calendars, short-form video, and community management that keep your feed alive." },
+      "copy": { "title": "Copywriting & Voice", "desc": "Web copy, email campaigns, and messaging that sounds like you — only better." },
+      "brand": { "title": "Brand Identity", "desc": "Logos, style guides, and visual systems that make your brand instantly recognizable." }
+    },
+    "why": {
+      "title": "Why Skyreal?",
+      "subtitle": "We built the agency we always wished existed.",
+      "small": { "title": "We get small brands.", "desc": "No bloated retainers, no templated decks. Just focused creative work built around what you actually need." },
+      "honest": { "title": "Radically honest.", "desc": "We take your brand seriously. Ourselves? Not so much. Expect candid feedback and zero jargon." },
+      "partners": { "title": "Partners, not vendors.", "desc": "We show up invested — because your growth is how we measure ours." }
+    },
+    "howWeWork": {
+      "title": "How we work",
+      "subtitle": "Simple by design — because your time is valuable.",
+      "discover": { "title": "Discover", "desc": "We dig into your goals, audience, and what makes you different." },
+      "create": { "title": "Create", "desc": "Strategy meets craft. We make things that feel right and perform." },
+      "launch": { "title": "Launch", "desc": "Ship, measure, refine. We stay in the game with you." }
+    },
+    "more": {
+      "title": "More from Skyreal",
+      "subtitle": "Learning and partnership opportunities.",
+      "courses": {
+        "title": "Online Courses",
+        "desc": "Learn content strategy, video production, and brand storytelling — taught by the Skyreal team. Self-paced, practical, and made for busy builders.",
+        "cta": "Browse courses →"
+      },
+      "sponsorship": {
+        "title": "Partner With Us",
+        "desc": "Get your brand woven into Skyreal content — video mentions, social integration, and co-branded series that reach the right audience authentically.",
+        "cta": "View sponsorship options →"
+      }
+    },
+    "founder": {
+      "label": "Founder",
+      "name": "Yuwei Chen",
+      "bio": "Media builder, storyteller, and firm believer that every brand has a story worth telling well. Yuwei started Skyreal to bring warm, thoughtful creative work to companies that deserve better than generic.",
+      "link": "Visit personal site →"
+    },
+    "contact": {
+      "title": "Let's work together",
+      "subtitle": "Tell us what you're building. We'll tell you how we can help.",
+      "name": "Name",
+      "company": "Company",
+      "email": "Email",
+      "message": "What are you working on?",
+      "messagePlaceholder": "Tell us about your project, goals, and timeline...",
+      "namePlaceholder": "Jane Smith",
+      "companyPlaceholder": "Acme Inc.",
+      "emailPlaceholder": "jane@acme.com",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "successTitle": "Message received!",
+      "successBody": "We'll be in touch within 1–2 business days.",
+      "error": "Something went wrong. Email us directly at hello@skyreal.org"
+    }
+  },
+  "courses": {
+    "badge": "Online Courses",
+    "headline1": "Learn from the",
+    "headline2": "Skyreal team.",
+    "subtitle": "Practical, self-paced courses on content strategy, video production, copywriting, and brand design. Built for busy founders and growing teams.",
+    "availableTitle": "Available now",
+    "comingTitle": "Coming soon",
+    "comingSubtitle": "These courses are in production. Enroll to join the waitlist.",
+    "ctaTitle": "Have a topic in mind?",
+    "ctaBody": "We're always building new curriculum. Tell us what you'd love to learn.",
+    "ctaLink": "Suggest a course →",
+    "duration": "Duration",
+    "lessons": "lessons",
+    "enroll": "Enroll →",
+    "comingSoon": "Coming soon",
+    "modal": {
+      "label": "Enroll in course",
+      "yourName": "Your name",
+      "namePlaceholder": "Jane Smith",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "jane@example.com",
+      "submit": "Request Access",
+      "submitting": "Enrolling...",
+      "note": "We'll follow up with access details within 1 business day.",
+      "successTitle": "You're on the list!",
+      "successBody1": "We'll email you at",
+      "successBody2": "as soon as",
+      "successBody3": "is ready.",
+      "close": "Close",
+      "error": "Something went wrong. Email us at hello@skyreal.org"
+    },
+    "catalogue": {
+      "strategy": {
+        "title": "Content Strategy 101",
+        "tagline": "Build a content engine that grows your brand on autopilot.",
+        "desc": "Learn how to research your audience, build a sustainable content calendar, repurpose assets across channels, and measure what actually matters. Perfect for founders and marketing leads who are tired of guessing.",
+        "topics": ["Audience research", "Content calendar", "Channel selection", "Repurposing", "Analytics basics"]
+      },
+      "video": {
+        "title": "Video Production Basics",
+        "tagline": "Create scroll-stopping video with gear you already own.",
+        "desc": "From shot composition to lighting on a budget, to editing a clean final cut — this course walks you through the full video production workflow. No expensive gear required.",
+        "topics": ["Composition", "Lighting", "Audio", "Editing in CapCut / Premiere", "Thumbnail design"]
+      },
+      "copy": {
+        "title": "Brand Voice & Copywriting",
+        "tagline": "Write words your customers actually want to read.",
+        "desc": "Discover your brand voice, craft a messaging framework, and write copy that converts — for websites, social media, email, and ads.",
+        "topics": ["Voice & tone", "Messaging hierarchy", "Headlines", "Email copy", "Social captions"]
+      },
+      "social": {
+        "title": "Social Media Mastery",
+        "tagline": "Turn your social channels into a consistent growth engine.",
+        "desc": "Short-form video strategy, hook formulas, posting cadence, community engagement, and how to analyze what's working. Covers Instagram, TikTok, LinkedIn, and YouTube Shorts.",
+        "topics": ["Short-form hooks", "Algorithm basics", "Posting rhythm", "Community building", "Analytics"]
+      },
+      "brandDesign": {
+        "title": "Brand Identity Design",
+        "tagline": "Design a brand that looks premium — even on a startup budget.",
+        "desc": "Logo design principles, color psychology, typography pairing, and how to build a visual identity system that scales. Uses Figma (free tier).",
+        "topics": ["Logo design", "Color theory", "Typography", "Style guide", "Figma basics"]
+      }
+    }
+  },
+  "sponsorship": {
+    "badge": "Brand Partnerships",
+    "headline1": "Get your brand in front of",
+    "headline2": "the right audience.",
+    "subtitle": "We create content that people actually want to watch and share. Partner with Skyreal and your brand becomes part of that story — naturally, authentically, memorably.",
+    "formatsTitle": "Integration formats",
+    "formatsSubtitle": "We meet your brand where the audience already is.",
+    "whyTitle": "Why sponsor Skyreal?",
+    "idealTitle": "Ideal for",
+    "formTitle": "Start the conversation",
+    "formSubtitle": "Tell us about your brand and what you're looking to achieve. We'll come back with ideas.",
+    "brandName": "Brand / Company name",
+    "brandPlaceholder": "Acme Co.",
+    "contactEmail": "Contact email",
+    "emailPlaceholder": "you@brand.com",
+    "website": "Website",
+    "websiteOptional": "(optional)",
+    "websitePlaceholder": "https://yourbrand.com",
+    "goal": "What would you like to achieve?",
+    "goalPlaceholder": "Tell us about your audience, goals, and the kind of partnership you have in mind...",
+    "submit": "Send Partnership Inquiry",
+    "submitting": "Sending...",
+    "successTitle": "Great to meet you!",
+    "successBody": "We'll review your inquiry and reach out within 2 business days.",
+    "error": "Something went wrong. Email us directly at hello@skyreal.org",
+    "formats": {
+      "video": { "title": "Video Mentions", "desc": "Your brand naturally woven into our video content — product demos, tutorials, or branded segments. Authentic, never pushy." },
+      "social": { "title": "Social Integration", "desc": "Dedicated or co-branded posts across our social channels. Designed to feel native, not like an ad." },
+      "series": { "title": "Content Series", "desc": "Sponsor an entire content series — multi-episode video or social campaigns where your brand leads the narrative." },
+      "email": { "title": "Email Features", "desc": "Reach our subscriber list with a dedicated mention or sponsored section in our newsletters." }
+    },
+    "whys": {
+      "targeted": { "title": "Targeted reach", "desc": "Our audience is builders, founders, and brand-curious professionals — not casual scrollers." },
+      "authentic": { "title": "Authentic fit", "desc": "We only partner with brands we'd actually use and recommend. No random placements." },
+      "creative": { "title": "Creative collaboration", "desc": "You get input on how your brand is presented. No cookie-cutter scripts." }
+    },
+    "idealFor": ["Startups & scale-ups", "B2B software & tools", "EdTech platforms", "Creative tools & services", "Sustainable brands", "Professional services"]
+  },
+  "footer": {
+    "email": "hello@skyreal.org",
+    "rights": "All rights reserved."
+  },
+  "palette": {
+    "placeholder": "Type a command or search...",
+    "noResults": "No results for",
+    "hint": "Press",
+    "hintKey": "to open",
+    "commands": {
+      "home": "Home",
+      "services": "Our Services",
+      "courses": "Browse Courses",
+      "sponsorship": "Partner With Us",
+      "about": "Meet the Founder",
+      "contact": "Get in Touch",
+      "switchEn": "Switch to English",
+      "switchZhTW": "Switch to 繁體中文",
+      "switchJa": "Switch to 日本語"
+    }
+  }
+}
