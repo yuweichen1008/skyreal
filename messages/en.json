@@ -54,6 +54,7 @@
     "founder": {
       "label": "Founder",
       "name": "Yuwei Chen",
+      "nameCn": "陳昱瑋",
       "bio": "Media builder, storyteller, and firm believer that every brand has a story worth telling well. Yuwei started Skyreal to bring warm, thoughtful creative work to companies that deserve better than generic.",
       "link": "Visit personal site →"
     },
@@ -77,6 +78,7 @@
   },
   "courses": {
     "badge": "Online Courses",
+    "instructor": "Barton",
     "headline1": "Learn from the",
     "headline2": "Skyreal team.",
     "subtitle": "Practical, self-paced courses on content strategy, video production, copywriting, and brand design. Built for busy founders and growing teams.",

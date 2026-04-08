@@ -172,11 +172,19 @@ export default function CoursesPage() {
           </motion.span>
           <motion.h1 variants={fadeUp} className="mb-5 text-5xl font-black leading-tight">
             {t('headline1')}<br />
-            <span className="gold-text">{t('headline2')}</span>
+            <span className="gold-text-animated font-display" style={{ fontStyle: 'italic' }}>{t('headline2')}</span>
           </motion.h1>
-          <motion.p variants={fadeUp} className="text-lg leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+          <motion.p variants={fadeUp} className="mb-6 text-lg leading-relaxed" style={{ color: 'var(--text-muted)' }}>
             {t('subtitle')}
           </motion.p>
+          <motion.div
+            variants={fadeUp}
+            className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold"
+            style={{ backgroundColor: 'rgba(184,160,68,0.10)', border: '1px solid rgba(184,160,68,0.22)', color: 'var(--accent-dark)' }}
+          >
+            <span>✦</span>
+            <span>Taught by {t('instructor')}</span>
+          </motion.div>
         </motion.div>
       </section>
 
