@@ -5,7 +5,7 @@ import { motion, type Variants } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/lib/navigation';
 import Navbar from '@/components/Navbar';
-import { submitInquiry } from '@/lib/appwrite';
+import { submitInquiry, subscribeEmail } from '@/lib/appwrite';
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
@@ -17,6 +17,8 @@ export default function Home() {
   const t = useTranslations('home');
   const tNav = useTranslations('nav');
   const tFooter = useTranslations('footer');
+  const [podcastEmail, setPodcastEmail] = useState('');
+  const [podcastSent, setPodcastSent] = useState(false);
   const [form, setForm] = useState({ name: '', company: '', email: '', message: '' });
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
@@ -363,6 +365,75 @@ export default function Home() {
                 {t('more.sponsorship.cta')}
               </Link>
             </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      <div className="section-divider" />
+
+      {/* ── PODCAST ── */}
+      <section className="grain-overlay section-dark relative overflow-hidden px-6 py-24">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="blob-gold absolute -top-20 left-1/2 -translate-x-1/2" style={{ width: 560, height: 360, opacity: 0.3 }} />
+          <div className="blob-green absolute bottom-0 right-0" style={{ width: 300, height: 300, opacity: 0.2 }} />
+        </div>
+        <div className="relative mx-auto max-w-2xl text-center">
+          <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }}>
+            <motion.span
+              variants={fadeUp}
+              className="mb-6 inline-block rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em]"
+              style={{ backgroundColor: 'rgba(184,160,68,0.15)', color: 'var(--accent-light)', border: '1px solid rgba(184,160,68,0.25)' }}
+            >
+              {t('podcast.badge')}
+            </motion.span>
+            <motion.div variants={fadeUp} className="mb-2 text-4xl">🎙️</motion.div>
+            <motion.h2
+              variants={fadeUp}
+              className="gold-text-animated font-display mb-5 text-4xl font-black tracking-tight md:text-5xl"
+              style={{ fontStyle: 'italic' }}
+            >
+              {t('podcast.title')}
+            </motion.h2>
+            <motion.p
+              variants={fadeUp}
+              className="mx-auto mb-8 max-w-md text-lg leading-relaxed"
+              style={{ color: 'rgba(244,246,240,0.6)' }}
+            >
+              {t('podcast.desc')}
+            </motion.p>
+            {podcastSent ? (
+              <motion.p
+                initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+                className="font-semibold"
+                style={{ color: 'var(--accent-light)' }}
+              >
+                {t('podcast.sent')}
+              </motion.p>
+            ) : (
+              <motion.form
+                variants={fadeUp}
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  if (!podcastEmail) return;
+                  try { await subscribeEmail(podcastEmail); } catch { /* silent */ }
+                  setPodcastSent(true);
+                }}
+                className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
+              >
+                <input
+                  type="email"
+                  required
+                  value={podcastEmail}
+                  onChange={(e) => setPodcastEmail(e.target.value)}
+                  placeholder={t('podcast.emailPlaceholder')}
+                  className="input-field max-w-xs"
+                  style={{ backgroundColor: 'rgba(244,246,240,0.06)', border: '1.5px solid rgba(244,246,240,0.12)', color: '#F4F6F0' }}
+                />
+                <button type="submit" className="btn-outline whitespace-nowrap">
+                  {t('podcast.cta')}
+                </button>
+              </motion.form>
+            )}
           </motion.div>
         </div>
       </section>

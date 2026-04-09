@@ -32,6 +32,18 @@
   --shadow-green: 0 8px 32px rgba(74,103,65,0.30);
 }
 
+/* ── Dark mode tokens ───────────────────────────────────────── */
+.dark {
+  --bg:        #1A1F16;
+  --bg-card:   #20261B;
+  --surface:   #252B20;
+  --text:      #F4F6F0;
+  --text-muted:#A8B49E;
+  --text-light:#6B7D60;
+  --border:    rgba(244,246,240,0.09);
+}
+.dark .section-dark { background-color: #131810; }
+
 /* ── Base ───────────────────────────────────────────────────── */
 @layer base {
   html { scroll-behavior: smooth; }

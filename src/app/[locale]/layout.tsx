@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import CommandPalette from "@/components/CommandPalette";
+import ChatWidget from "@/components/ChatWidget";
 import "../globals.css";
 
 export const metadata: Metadata = {
@@ -26,11 +27,12 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className="dark">
       <body className="antialiased">
         <NextIntlClientProvider messages={messages}>
           {children}
           <CommandPalette />
+          <ChatWidget />
         </NextIntlClientProvider>
       </body>
     </html>

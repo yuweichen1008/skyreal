@@ -58,6 +58,14 @@
       "bio": "Media builder, storyteller, and firm believer that every brand has a story worth telling well. Yuwei started Skyreal to bring warm, thoughtful creative work to companies that deserve better than generic.",
       "link": "Visit personal site →"
     },
+    "podcast": {
+      "badge": "Coming Soon",
+      "title": "The Skyreal Podcast",
+      "desc": "Real conversations about brand building, content creation, and the craft of creative work. Launching soon — subscribe to be first in.",
+      "cta": "Notify me →",
+      "emailPlaceholder": "your@email.com",
+      "sent": "You're on the list!"
+    },
     "contact": {
       "title": "Let's work together",
       "subtitle": "Tell us what you're building. We'll tell you how we can help.",
